@@ -1,0 +1,18 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-TheWorld.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\TheWorldEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorld.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorldCharacter.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorldGameMode.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorld.init.gen.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorldCharacter.gen.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\TheWorldGameMode.gen.cpp.obj"
+"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\Default.rc2.res"
+/OUT:"C:\Users\DybBug\Documents\Unreal Projects\TheWorld\Intermediate\Build\Win64\UnrealEditor\Development\TheWorld\UnrealEditor-TheWorld.lib"
+/INCLUDE:IMPLEMENT_MODULE_TheWorld

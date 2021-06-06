@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "TheWorld",
+			"Path": "C:\\Users\\DybBug\\Documents\\Unreal Projects\\TheWorld\\Source\\TheWorld.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "TheWorldEditor",
+			"Path": "C:\\Users\\DybBug\\Documents\\Unreal Projects\\TheWorld\\Source\\TheWorldEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

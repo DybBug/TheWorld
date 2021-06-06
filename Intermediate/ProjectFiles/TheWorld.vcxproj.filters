@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\TheWorld.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{76B183F8-A835-4C95-9DEC-C2FC1008C640}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TheWorld.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\TheWorldEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{59EC0574-F3B1-4973-98B2-5A877595B610}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\TheWorld">
+      <UniqueIdentifier>{F2CF634F-FED2-4C91-B735-ADA23710AC61}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TheWorld\TheWorld.Build.cs">
+      <Filter>Source\TheWorld</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\TheWorld\TheWorld.cpp">
+      <Filter>Source\TheWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TheWorld\TheWorld.h">
+      <Filter>Source\TheWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TheWorld\TheWorldCharacter.cpp">
+      <Filter>Source\TheWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TheWorld\TheWorldCharacter.h">
+      <Filter>Source\TheWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TheWorld\TheWorldGameMode.cpp">
+      <Filter>Source\TheWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TheWorld\TheWorldGameMode.h">
+      <Filter>Source\TheWorld</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
