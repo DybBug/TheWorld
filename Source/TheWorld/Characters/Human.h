@@ -6,10 +6,22 @@
 #include "GameFramework/Character.h"
 #include "Human.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
+
 UCLASS()
 class THEWORLD_API AHuman : public ACharacter
 {
 	GENERATED_BODY()
+
+
+protected :
+	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta=(DisplayName="SpringArm"))
+	USpringArmComponent* m_pSpringArm;
+
+	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta=(DisplayName="Camera"))
+	UCameraComponent* m_pCamera;
 
 public:
 	// Sets default values for this character's properties
@@ -21,9 +33,13 @@ protected:
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick(float _deltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* _pPlayerInputComponent) override;
+
+private :
+	void MoveForward(float _value);
+	void MoveRight(float _value);
 
 };
