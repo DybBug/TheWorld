@@ -2,6 +2,7 @@
 
 
 #include "Human.h"
+#include <GameFramework/CharacterMovementComponent.h>
 #include <GameFramework/SpringArmComponent.h>
 #include <Camera/CameraComponent.h>
 
@@ -24,6 +25,8 @@ AHuman::AHuman()
 
 	m_pCamera = CreateDefaultSubobject<UCameraComponent>(FName("Camera"));
 	m_pCamera->SetupAttachment(m_pSpringArm);
+
+	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 
 }
 
