@@ -8,6 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class UAnimMontage;
 
 
 UCLASS()
@@ -17,11 +18,20 @@ class THEWORLD_API AHuman : public ACharacter
 
 
 protected :
-	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta=(DisplayName="SpringArm"))
+	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta = (DisplayName = "SpringArm"))
 	USpringArmComponent* m_pSpringArm;
 
-	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta=(DisplayName="Camera"))
+	UPROPERTY(VisibleAnywhere, Category = "Human|Components", meta = (DisplayName = "Camera"))
 	UCameraComponent* m_pCamera;
+
+	UPROPERTY(EditAnywhere, Category = "Human|Properties", meta = (DisplayName = "Jump AnimMontage"))
+	UAnimMontage* m_pJumpAminMontage;
+
+	UPROPERTY(EditAnywhere, Category = "Human|Properties", meta = (DisplayName = "Is Walking"))
+	bool m_IsWalking;
+
+	UPROPERTY(EditAnywhere, Category = "Human|Properties", meta = (DisplayName = "Is Sprinting"))
+	bool m_IsSprinting;
 
 public:
 	// Sets default values for this character's properties
@@ -38,8 +48,16 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* _pPlayerInputComponent) override;
 
-private :
+
+protected :
 	void MoveForward(float _value);
 	void MoveRight(float _value);
+
+
+	void ToggleRunOrWalk();
+	void StartSprinting();
+	void FinishSprinting();
+	void Jump();
+	virtual void Landed(const FHitResult& _hit) override;
 
 };

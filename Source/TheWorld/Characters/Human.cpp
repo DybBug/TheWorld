@@ -5,6 +5,7 @@
 #include <GameFramework/CharacterMovementComponent.h>
 #include <GameFramework/SpringArmComponent.h>
 #include <Camera/CameraComponent.h>
+#include <Animation/AnimMontage.h>
 
 // Sets default values
 AHuman::AHuman()
@@ -26,7 +27,8 @@ AHuman::AHuman()
 	m_pCamera = CreateDefaultSubobject<UCameraComponent>(FName("Camera"));
 	m_pCamera->SetupAttachment(m_pSpringArm);
 
-	GetCharacterMovement()->bUseControllerDesiredRotation = true;
+	GetCharacterMovement()->MaxAcceleration = 500.f;
+	GetCharacterMovement()->bOrientRotationToMovement = true;
 
 }
 
@@ -49,10 +51,13 @@ void AHuman::SetupPlayerInputComponent(UInputComponent* pPlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(pPlayerInputComponent);
 
+	pPlayerInputComponent->BindAction("ToggleRun/Walk", EInputEvent::IE_Pressed, this, &AHuman::ToggleRunOrWalk);
+	pPlayerInputComponent->BindAction("Sprint", EInputEvent::IE_Pressed, this, &AHuman::StartSprinting);
+	pPlayerInputComponent->BindAction("Sprint", EInputEvent::IE_Released, this, &AHuman::FinishSprinting);
+	pPlayerInputComponent->BindAction("Jump", EInputEvent::IE_Pressed, this, &AHuman::Jump);
+
 	pPlayerInputComponent->BindAxis("MoveForward", this, &AHuman::MoveForward);
 	pPlayerInputComponent->BindAxis("MoveRight", this, &AHuman::MoveRight);
-
-
 	pPlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	pPlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 }
@@ -84,4 +89,39 @@ void AHuman::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void AHuman::ToggleRunOrWalk()
+{
+	m_IsWalking ^= true;
+	GetCharacterMovement()->MaxWalkSpeed = (m_IsWalking ? 300.f : 600.f);
+}
+
+void AHuman::StartSprinting()
+{
+	m_IsSprinting = true;
+	GetCharacterMovement()->MaxWalkSpeed = 800.f;
+}
+
+void AHuman::FinishSprinting()
+{
+	m_IsSprinting = false;
+
+	if (m_IsWalking)
+		ToggleRunOrWalk();
+	else
+		GetCharacterMovement()->MaxWalkSpeed = 600.f;
+}
+
+void AHuman::Jump()
+{
+	Super::Jump();
+	if(m_pJumpAminMontage)
+		PlayAnimMontage(m_pJumpAminMontage);	
+}
+
+void AHuman::Landed(const FHitResult& _hit)
+{
+	if(m_pJumpAminMontage)
+		PlayAnimMontage(m_pJumpAminMontage, 1.0f, FName("Land"));
 }

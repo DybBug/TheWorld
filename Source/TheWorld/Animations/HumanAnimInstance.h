@@ -16,13 +16,13 @@ class THEWORLD_API UHumanAnimInstance : public UAnimInstance
 	GENERATED_BODY()
 
 protected :
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Property", meta = (DisplayName = "Forward Speed"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Properties", meta = (DisplayName = "Forward Speed"))
 	float m_ForwardSpeed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Property", meta = (DisplayName = "Right Speed"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Properties", meta = (DisplayName = "Right Speed"))
 	float m_RightSpeed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Property", meta = (DisplayName = "Human"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HumanAnimInstance|Properties", meta = (DisplayName = "Human"))
 	AHuman* m_pHuman;
 
 public :
